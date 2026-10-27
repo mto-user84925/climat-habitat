@@ -22,7 +22,10 @@ export default async function handler(req, res) {
   try {
     // Load index if not cached
     if (!inseeIndexCache) {
-      const indexPath = path.join(process.cwd(), 'public', 'data', 'insee_index.json');
+      let indexPath = path.join(process.cwd(), 'api', 'data', 'insee_index.json');
+      if (!fs.existsSync(indexPath)) {
+        indexPath = path.join(process.cwd(), 'public', 'data', 'insee_index.json');
+      }
       const raw = fs.readFileSync(indexPath, 'utf-8');
       inseeIndexCache = JSON.parse(raw);
     }
