@@ -1,0 +1,865 @@
+{
+  "title_first_step": "Dites-nous en plus sur votre maison",
+  "text_first_step": "Répondez à chaque question pour obtenir votre diagnostic personnalisé",
+  "title_next_step": "Continuons votre diagnostic",
+  "text_next_step": "Choisissez la question à laquelle vous souhaitez répondre",
+  "automatic_sheets": [
+    22
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Exposition RGA",
+      "picture": "",
+      "question": "Quelle est l'exposition de mon bien face au retrait-gonflement des argiles ?",
+      "isDisplayed": false,
+      "isMultipleChoice": false,
+      "isScoreCumulative": false,
+      "default_answer": null,
+      "answers": [
+        {
+          "id": 1,
+          "name": "faible",
+          "score": 10,
+          "description": "Un sinistre peut toujours survenir en cas de sécheresse importante. Cependant, les dégâts ne concerneront qu'une faible proportion des bâtiments, principalement ceux qui présentent des défauts de construction ou sont construits dans un environnement défavorable (par exemple en présence d'arbres trop proches).",
+          "sheets": [],
+          "picture": ""
+        },
+        {
+          "id": 2,
+          "name": "modéré",
+          "score": 30,
+          "description": "Le risque est moyen, d'intensité généralement modérée. Pour limiter les effets de la sécheresse, les constructions, notamment les maisons individuelles, doivent respecter les nouvelles réglementations techniques et environnementales.",
+          "sheets": [],
+          "picture": ""
+        },
+        {
+          "id": 3,
+          "name": "important",
+          "score": 50,
+          "description": "Le risque est élevé avec une intensité forte. Pour limiter les effets de la sécheresse, les constructions, notamment les maisons individuelles, doivent être réalisées en respectant les nouvelles réglementations techniques et environnementales.",
+          "sheets": [],
+          "picture": ""
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Environnement",
+      "picture": "/img/materials/drought/urbain.png",
+      "question": "Dans quel type d'environnement se situe votre habitation ?",
+      "isDisplayed": true,
+      "isMultipleChoice": false,
+      "isScoreCumulative": false,
+      "default_answer": 4,
+      "answers": [
+        {
+          "id": 1,
+          "name": "urbain",
+          "tooltip": "Zone caractérisée par une forte densité de population, de nombreux équipements et une activité économique importante.",
+          "score": 5,
+          "description": "Un environnement urbain largement artificialisé, avec peu d'espaces verts et des sols en dur, limite l'évaporation et l'infiltration d'eau dans les sols. Dans cet environnement, le risque de retrait-gonflement des argiles (RGA) est plus faible qu'en milieu rural.",
+          "sheets": [],
+          "picture": "/img/materials/drought/urbain.png",
+          "event": [
+            {
+              "splineBoleanName": "environnement_urbain",
+              "value": true
+            },
+            {
+              "splineBoleanName": "environnement_periurbain",
+              "value": false
+            },
+            {
+              "splineBoleanName": "environnement_rural",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "périurbain",
+          "tooltip": "Zone située en périphérie des espaces urbains, composée principalement de lotissements et de petits habitats collectifs.",
+          "score": 10,
+          "description": "L'environnement périurbain correspond le plus souvent à d'anciennes zones agricoles progressivement urbanisées, sans atteindre le niveau de densité d'une ville. Ces zones présentent une vulnérabilité au retrait-gonflement des argiles (RGA).",
+          "sheets": [],
+          "picture": "/img/materials/drought/periurbain.png",
+          "event": [
+            {
+              "splineBoleanName": "environnement_urbain",
+              "value": false
+            },
+            {
+              "splineBoleanName": "environnement_periurbain",
+              "value": true
+            },
+            {
+              "splineBoleanName": "environnement_rural",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "rural",
+          "tooltip": "Zone caractérisée par une faible densité de population, un habitat dispersé et une majorité d'espaces naturels ou agricoles.",
+          "score": 10,
+          "description": "L'environnement rural peut être vulnérable au retrait-gonflement des argiles (RGA) selon la sensibilité du sol et la présence plus ou moins importante d'argile.",
+          "sheets": [],
+          "picture": "/img/materials/drought/rural.png",
+          "event": [
+            {
+              "splineBoleanName": "environnement_urbain",
+              "value": false
+            },
+            {
+              "splineBoleanName": "environnement_periurbain",
+              "value": false
+            },
+            {
+              "splineBoleanName": "environnement_rural",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "je ne sais pas",
+          "score": 8.5,
+          "description": "L'environnement dans lequel se situe votre habitation peut avoir un impact sur le comportement des sols. Certains terrains retiennent davantage l'eau, d'autres s'assèchent plus rapidement. La présence de végétation à proximité peut également influencer les mouvements du sol et accentuer les phénomènes de retrait-gonflement.",
+          "sheets": [],
+          "picture": "",
+          "event": [
+            {
+              "splineBoleanName": "environnement_urbain",
+              "value": false
+            },
+            {
+              "splineBoleanName": "environnement_periurbain",
+              "value": true
+            },
+            {
+              "splineBoleanName": "environnement_rural",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Agencement de la parcelle",
+      "picture": "/img/materials/drought/pentue.png",
+      "question": "Comment est agencée la parcelle de votre construction ?",
+      "isDisplayed": true,
+      "isMultipleChoice": true,
+      "isScoreCumulative": true,
+      "default_answer": 5,
+      "answers": [
+        {
+          "id": 1,
+          "name": "maison non mitoyenne",
+          "group": "mitoyennete",
+          "score": 5,
+          "description": "Une habitation non mitoyenne permet d'installer des solutions limitant les effets de la sécheresse sur l'ensemble du bâtiment. Il est notamment possible d'aménager un trottoir le long des façades et de limiter la végétation située à proximité.",
+          "sheets": [],
+          "picture": "/img/materials/drought/non-mitoyenne.png",
+          "event": [
+            {
+              "splineBoleanName": "parcelle_mitoyenne",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "maison mitoyenne",
+          "group": "mitoyennete",
+          "score": 5,
+          "description": "Il n'est pas possible d'agir sur l'ensemble du bâtiment. L'impact des mesures prises sera donc limité et certains tassements pourront se produire.",
+          "sheets": [],
+          "picture": "/img/materials/drought/mitoyenne.png",
+          "event": [
+            {
+              "splineBoleanName": "parcelle_mitoyenne",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "parcelle pentue (>10%)",
+          "score": 5,
+          "description": "Un terrain en pente favorise les ruissellements, entraînant des apports d'eau plus importants sur la façade exposée à la pente. Cette plus forte exposition à l'eau va créer un déséquilibre hydrique avec les autres façades qui auront des sols plus secs.",
+          "sheets": [
+            20
+          ],
+          "picture": "/img/materials/drought/pentue.png",
+          "event": [
+            {
+              "splineBoleanName": "parcelle_pentue",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "cours d'eau < 100 m",
+          "score": 10,
+          "description": "Même s'il ne déborde pas, un cours d'eau peut provoquer des apports d'eau plus importants sur la façade exposée à la rivière. Cette forte exposition à l'eau va provoquer un déséquilibre hydrique avec les autres façades qui auront des sols plus secs.",
+          "sheets": [
+            20
+          ],
+          "picture": "/img/materials/drought/cours-deau.png",
+          "event": [
+            {
+              "splineBoleanName": "parcelle_coursEau",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "je ne sais pas",
+          "score": 12.5,
+          "description": "L'organisation de la parcelle impacte la vulnérabilité de l'habitation face au RGA. Son agencement peut provoquer des apports d'eau importants sur certaines façades, par exemple en cas de pente ou de cours d'eau à proximité.",
+          "sheets": [
+            20
+          ],
+          "isExclusive": true,
+          "picture": "",
+          "event": [
+            {
+              "splineBoleanName": "parcelle_mitoyenne",
+              "value": true
+            },
+            {
+              "splineBoleanName": "parcelle_coursdeau",
+              "value": true
+            },
+            {
+              "splineBoleanName": "parcelle_pentue",
+              "value": true
+            },
+            {
+              "splineBoleanName": "parcelle_mitoyenne",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Arbres à proximité",
+      "picture": "/img/materials/drought/arbre-oui.png",
+      "question": "Y a-t-il des arbres à proximité de votre habitation ? (La distance entre l'arbre et la construction doit être supérieure à 1,5 fois la taille de l'arbre adulte.)",
+      "isDisplayed": true,
+      "isMultipleChoice": false,
+      "isScoreCumulative": false,
+      "default_answer": 3,
+      "answers": [
+        {
+          "id": 1,
+          "name": "oui",
+          "score": 20,
+          "description": "La présence de végétaux accentue les variations hydriques en période de sécheresse, les racines des arbres se développant naturellement sous l'habitation à la recherche d'humidité. Cela augmente le risque de désordres liés au retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            19
+          ],
+          "picture": "/img/materials/drought/arbre-oui.png",
+          "event": [
+            {
+              "splineBoleanName": "arbres_arbres",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "non",
+          "score": 0,
+          "description": "L'absence d'arbre à proximité limite le risque de retrait-gonflement des argiles (RGA) car les racines absorbent en profondeur l'eau du sol et accentuent son retrait.",
+          "sheets": [],
+          "picture": "/img/materials/drought/arbre-non.png",
+          "event": [
+            {
+              "splineBoleanName": "arbres_arbres",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "je ne sais pas",
+          "score": 10,
+          "description": "La présence d'arbres à proximité de votre habitation peut avoir un impact sur l'humidité des sols. Leurs racines absorbent parfois une grande quantité d'eau, ce qui peut accentuer les phénomènes de retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            19
+          ],
+          "picture": "",
+          "event": [
+            {
+              "splineBoleanName": "arbres_arbres",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Présence de végétaux",
+      "picture": "/img/materials/drought/parterre-de-fleurs.png",
+      "question": "Y a-t-il une présence de végétaux à votre habitation ?",
+      "isDisplayed": true,
+      "isMultipleChoice": true,
+      "isScoreCumulative": true,
+      "default_answer": 4,
+      "answers": [
+        {
+          "id": 1,
+          "name": "non",
+          "score": 0,
+          "description": "La présence de végétaux à l'habitation est nuisible : ils contribuent aux variations hydriques en période de sécheresse et augmentent le risque de retrait-gonflement des argiles (RGA).",
+          "sheets": [],
+          "isExclusive": true,
+          "picture": "/img/materials/drought/vegetaux-non.png",
+          "event": [
+            {
+              "splineBoleanName": "vegetation_fleurs",
+              "value": false
+            },
+            {
+              "splineBoleanName": "vegetation_haies",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "oui, parterre de fleurs",
+          "score": 5,
+          "description": "Les fleurs n'ont pas d'impact direct sur le risque de retrait-gonflement des argiles (RGA). En revanche un parterre n'est pas étanche : l'évaporation des eaux à proximité des fondations peut augmenter le risque de retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            19
+          ],
+          "picture": "/img/materials/drought/parterre-de-fleurs.png",
+          "event": [
+            {
+              "splineBoleanName": "vegetation_fleurs",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "oui, haie / arbustes",
+          "score": 10,
+          "description": "Les haies et arbustes à proximité des façades réduisent l'humidité des sols et augmentent donc les risques de retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            19
+          ],
+          "picture": "/img/materials/drought/haies-arbustes.png",
+          "event": [
+            {
+              "splineBoleanName": "vegetation_haies",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "je ne sais pas",
+          "score": 5,
+          "description": "La présence de petits végétaux au contact de l'habitation peut avoir un impact sur l'humidité des sols. Ils peuvent favoriser l'évaporation de l'eau ou, au contraire, maintenir une humidité plus importante au pied des façades.",
+          "sheets": [
+            19
+          ],
+          "isExclusive": true,
+          "picture": "",
+          "event": [
+            {
+              "splineBoleanName": "vegetation_fleurs",
+              "value": true
+            },
+            {
+              "splineBoleanName": "vegetation_haies",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Nature du sol",
+      "picture": "/img/materials/drought/sol-impermeable.png",
+      "question": "Quelle est la nature du sol autour de votre habitation ?",
+      "isDisplayed": true,
+      "isMultipleChoice": false,
+      "isScoreCumulative": false,
+      "default_answer": 4,
+      "answers": [
+        {
+          "id": 1,
+          "name": "perméable",
+          "tooltip": "Qui laisse passer l'eau (ex. : gazon, terre, gravier…).",
+          "score": 10,
+          "description": "Un sol perméable autour de l'habitation laisse s'évaporer l'humidité présente au niveau des fondations et augmente le risque de retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            18
+          ],
+          "picture": "/img/materials/drought/sol-permeable.png",
+          "event": [
+            {
+              "splineBoleanName": "sol_permeable",
+              "value": true
+            },
+            {
+              "splineBoleanName": "sol_impermeable",
+              "value": false
+            },
+            {
+              "splineBoleanName": "sol_mixte",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "imperméable",
+          "tooltip": "Qui ne laisse pas passer l'eau (ex. : pavé, carrelage, béton, enrobé…).",
+          "score": 0,
+          "description": "Un sol imperméable en périphérie directe de l'habitation permet de conserver l'humidité présente au niveau des fondations et diminue significativement le risque de retrait-gonflement des argiles (RGA).",
+          "sheets": [],
+          "picture": "/img/materials/drought/sol-impermeable.png",
+          "event": [
+            {
+              "splineBoleanName": "sol_permeable",
+              "value": false
+            },
+            {
+              "splineBoleanName": "sol_impermeable",
+              "value": true
+            },
+            {
+              "splineBoleanName": "sol_mixte",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "mixte",
+          "tooltip": "Présence à la fois de surfaces perméables et imperméables.",
+          "score": 20,
+          "description": "Un sol mixte (alternant zones perméables et imperméables) crée des variations d'humidité au niveau des fondations, ce qui augmente le risque de désordres liés au retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            18
+          ],
+          "picture": "/img/materials/drought/sol-mixte.png",
+          "event": [
+            {
+              "splineBoleanName": "sol_permeable",
+              "value": false
+            },
+            {
+              "splineBoleanName": "sol_impermeable",
+              "value": false
+            },
+            {
+              "splineBoleanName": "sol_mixte",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "je ne sais pas",
+          "score": 10,
+          "description": "La nature du sol autour de l'habitation impacte sa vulnérabilité face au risque RGA. Si le terrain est perméable ou imperméable, cela modifie l'humidité du sol au niveau des fondations et le retrait-gonflement des argiles.",
+          "sheets": [
+            18
+          ],
+          "picture": "",
+          "event": [
+            {
+              "splineBoleanName": "sol_permeable",
+              "value": false
+            },
+            {
+              "splineBoleanName": "sol_impermeable",
+              "value": false
+            },
+            {
+              "splineBoleanName": "sol_mixte",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Année de construction",
+      "picture": "/img/materials/drought/avant-1970.png",
+      "question": "Quelle est l'année de construction de votre habitation ?",
+      "isDisplayed": true,
+      "isMultipleChoice": false,
+      "isScoreCumulative": false,
+      "default_answer": 3,
+      "answers": [
+        {
+          "id": 1,
+          "name": "avant 1970",
+          "score": 10,
+          "description": "Les matériaux utilisés avant 1970 étaient moins sensibles aux conséquences du retrait-gonflement des argiles (RGA). De plus, les habitations étaient généralement plus solidement construites.",
+          "sheets": [],
+          "picture": "/img/materials/drought/avant-1970.png"
+        },
+        {
+          "id": 2,
+          "name": "1970 et après",
+          "score": 15,
+          "description": "Après 1970, l'industrialisation des constructions a dégradé la qualité des maisons en les rendant généralement plus sensibles au retrait-gonflement des argiles (RGA).",
+          "sheets": [],
+          "picture": "/img/materials/drought/apres-1970.png"
+        },
+        {
+          "id": 3,
+          "name": "je ne sais pas",
+          "score": 12.5,
+          "description": "L'année de construction de l'habitation impacte la vulnérabilité face au risque de retrait-gonflement des argiles car la qualité des matériaux et de mise en œuvre diffèrent.",
+          "sheets": [],
+          "picture": ""
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Fondations / plancher bas",
+      "picture": "/img/materials/drought/sous-sol-total.png",
+      "question": "Quel est le type de fondations ou de plancher bas de l'habitation ?",
+      "isDisplayed": true,
+      "isMultipleChoice": true,
+      "isScoreCumulative": true,
+      "default_answer": 6,
+      "answers": [
+        {
+          "id": 1,
+          "name": "vide sanitaire total",
+          "tooltip": "La totalité du rez-de-chaussée est construite au-dessus d'un vide sanitaire. Les deux ont la même surface.",
+          "group": "videSanitaire",
+          "score": 5,
+          "description": "Les fondations sont ancrées à la même profondeur partout, ce qui limite le risque de désordres liés au retrait-gonflement des argiles (RGA). Il faut veiller à ce que le vide sanitaire soit convenablement ventilé, car une trop forte ventilation risque d'assécher le sol de façon exagérée.",
+          "sheets": [
+            17
+          ],
+          "picture": "/img/materials/drought/vide-sanitaire-total.png",
+          "event": [
+            {
+              "splineBoleanName": "fondations_videSanitaireTotal",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "vide sanitaire partiel",
+          "tooltip": "Le vide sanitaire couvre une surface inférieure à celle du rez-de-chaussée. Une partie du rez-de-chaussée n'est donc pas construite au-dessus du vide sanitaire.",
+          "group": "videSanitaire",
+          "score": 10,
+          "description": "Les fondations sont ancrées à des profondeurs différentes, ce qui accentue le risque de désordres liés au retrait-gonflement des argiles (RGA). Il faut veiller à ce que le vide sanitaire soit convenablement ventilé, car une trop forte ventilation risque d'assécher le sol de façon exagérée.",
+          "sheets": [
+            17,
+            16
+          ],
+          "picture": "/img/materials/drought/vide-sanitaire-partiel.png",
+          "event": [
+            {
+              "splineBoleanName": "fondations_videSanitairePartiel",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "sous-sol total",
+          "tooltip": "La totalité du rez-de-chaussée est construite au-dessus d'un sous-sol. Les deux ont la même surface.",
+          "group": "sousSol",
+          "score": 0,
+          "description": "Les fondations sont ancrées à une même profondeur partout, ce qui limite le risque de retrait-gonflement des argiles (RGA). Une profondeur plus importante qu'avec des fondations superficielles rend le bâtiment moins sensible face au phénomène RGA.",
+          "sheets": [],
+          "picture": "/img/materials/drought/sous-sol-total.png",
+          "event": [
+            {
+              "splineBoleanName": "fondations_sousSolTotal",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "sous-sol partiel",
+          "tooltip": "Le sous-sol couvre une surface inférieure à celle du rez-de-chaussée. Une partie du rez-de-chaussée n'est donc pas construite au-dessus du sous-sol.",
+          "group": "sousSol",
+          "score": 10,
+          "description": "Les fondations sont ancrées à des profondeurs différentes, ce qui accentue le risque de désordres liés au retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            16
+          ],
+          "picture": "/img/materials/drought/sous-sol-partiel.png",
+          "event": [
+            {
+              "splineBoleanName": "fondations_sousSolPartiel",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "dallage",
+          "tooltip": "Le dallage sur terre-plein constitue le plancher bas d'une maison. Il s'agit d'une dalle béton coulée sur un terrain compacté, sans vide sanitaire ni sous-sol.",
+          "score": 5,
+          "description": "Une construction sur dallage (radier) est posée à la surface du sol, ce qui aggrave la vulnérabilité au retrait-gonflement des argiles (RGA). De plus, les dallages sont rarement réalisés dans les règles de l'art, ce qui accentue leur fragilité face au phénomène de RGA.",
+          "sheets": [],
+          "picture": "/img/materials/drought/dallage.png",
+          "event": [
+            {
+              "splineBoleanName": "fondations_dallage",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "je ne sais pas",
+          "score": 12.5,
+          "description": "La profondeur et l'homogénéité des fondations impactent la sensibilité du bâtiment face au retrait-gonflement des argiles.",
+          "sheets": [],
+          "isExclusive": true,
+          "picture": "",
+          "event": [
+            {
+              "splineBoleanName": "fondations_videSanitaireTotal",
+              "value": true
+            },
+            {
+              "splineBoleanName": "fondations_videSanitairePartiel",
+              "value": true
+            },
+            {
+              "splineBoleanName": "fondations_sousSolTotal",
+              "value": true
+            },
+            {
+              "splineBoleanName": "fondations_sousSolPartiel",
+              "value": true
+            },
+            {
+              "splineBoleanName": "fondations_garage",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Forme du bâtiment",
+      "picture": "/img/materials/drought/etage-partiel.png",
+      "question": "Quelle est la forme du bâtiment ?",
+      "isDisplayed": true,
+      "isMultipleChoice": true,
+      "isScoreCumulative": true,
+      "default_answer": 5,
+      "answers": [
+        {
+          "id": 1,
+          "name": "avec une extension",
+          "score": 10,
+          "description": "Une construction avec des fondations différentes ou sur un sol d'assise à une profondeur différente sera plus sensible au phénomène de retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            16
+          ],
+          "picture": "/img/materials/drought/extension.png",
+          "event": [
+            {
+              "splineBoleanName": "forme_extension",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "avec 1 étage partiel",
+          "score": 10,
+          "description": "Dans les zones de l'étage partiel, l'ouvrage va peser plus lourd, ce qui va entraîner des réactions différentes au niveau des fondations et aggraver la sensibilité au phénomène de retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            16
+          ],
+          "picture": "/img/materials/drought/etage-partiel.png",
+          "event": [
+            {
+              "splineBoleanName": "forme_etage",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "volume homogène",
+          "score": 0,
+          "description": "Une construction qui présente un volume homogène sera moins sensible aux phénomènes de retrait-gonflement des argiles (RGA).",
+          "sheets": [],
+          "isExclusive": true,
+          "picture": "/img/materials/drought/volume-homogene.png",
+          "event": [
+            {
+              "splineBoleanName": "forme_extension",
+              "value": false
+            },
+            {
+              "splineBoleanName": "forme_etage",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "je ne sais pas",
+          "score": 15,
+          "description": "La forme du bâtiment ainsi que son poids influencent sa sensibilité au retrait-gonflement des argiles.",
+          "sheets": [
+            16
+          ],
+          "isExclusive": true,
+          "picture": "",
+          "event": [
+            {
+              "splineBoleanName": "forme_extension",
+              "value": true
+            },
+            {
+              "splineBoleanName": "forme_etage",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Gestion des eaux de pluie",
+      "picture": "/img/materials/drought/rejet-gouttiere-en-pied-de-mur.png",
+      "question": "Comment sont gérées les eaux de pluie ?",
+      "isDisplayed": true,
+      "isMultipleChoice": true,
+      "isScoreCumulative": false,
+      "default_answer": 6,
+      "answers": [
+        {
+          "id": 1,
+          "name": "rejet dans réseau public",
+          "score": 0,
+          "description": "L'évacuation des eaux dans le réseau public n'aggrave pas le risque de retrait-gonflement des argiles (RGA).",
+          "sheets": [],
+          "picture": "/img/materials/drought/ecoulement-domaine-public.png",
+          "event": [
+            {
+              "splineBoleanName": "eau_reseauPublic",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "rejet des gouttières en pied de mur",
+          "score": 15,
+          "description": "Le rejet des gouttières en pied de mur accentue la variation hydrique dans une zone très localisée au niveau des fondations : cela accentue très fortement les risques de retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            21
+          ],
+          "picture": "/img/materials/drought/rejet-gouttiere-en-pied-de-mur.png",
+          "event": [
+            {
+              "splineBoleanName": "eau_gouttierePied",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "stockage dans réservoir",
+          "score": 5,
+          "description": "Le stockage des eaux de pluie dans un réservoir n'impacte pas l'humidité des sols sur la parcelle, à condition qu'un dispositif de trop-plein soit installé sur les cuves pour rejeter les eaux à au moins 5 mètres de la maison.",
+          "sheets": [
+            21
+          ],
+          "picture": "/img/materials/drought/stockage-reservoir.png",
+          "event": [
+            {
+              "splineBoleanName": "eau_reservoir",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "absence de gouttière",
+          "score": 10,
+          "description": "L'absence de gouttière accentue la variation hydrique dans une zone très localisée au niveau des fondations. Cela augmente très fortement les risques liés au retrait-gonflement des argiles (RGA).",
+          "sheets": [
+            21
+          ],
+          "picture": "/img/materials/drought/absence-de-gouttiere.png"
+        },
+        {
+          "id": 5,
+          "name": "autre (épandage / fossé / noue)",
+          "score": 0,
+          "description": "Ces solutions n'aggravent pas le risque de retrait-gonflement des argiles (RGA), à condition que le dispositif se situe à plus de 5 mètres de la maison.",
+          "sheets": [
+            21
+          ],
+          "picture": "/img/materials/drought/epandage-fosse-noue.png",
+          "event": [
+            {
+              "splineBoleanName": "eau_epandage",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "je ne sais pas",
+          "score": 15,
+          "description": "La gestion des eaux de pluie influence l'humidité des sols autour de l'habitation, ce qui impacte le retrait-gonflement des argiles.",
+          "sheets": [
+            21
+          ],
+          "picture": "",
+          "event": [
+            {
+              "splineBoleanName": "eau_reseauPublic",
+              "value": true
+            },
+            {
+              "splineBoleanName": "eau_gouttierePied",
+              "value": true
+            },
+            {
+              "splineBoleanName": "eau_reservoir",
+              "value": true
+            },
+            {
+              "splineBoleanName": "eau_epandage",
+              "value": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

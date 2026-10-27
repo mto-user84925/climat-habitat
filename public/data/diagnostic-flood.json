@@ -1,0 +1,766 @@
+{
+  "title_first_step": "Dites-nous en plus sur votre maison",
+  "text_first_step": "Choisissez un élément pour nous aider à élaborer votre diagnostic",
+  "title_next_step": "Continuons à explorer votre maison",
+  "text_next_step": "Choisissez l'élément que vous voulez examiner",
+  "categories": [
+    {
+      "id": "1",
+      "name": "Sol du rez-de-chaussée",
+      "picture": "/img/materials/Revetement_Sol_StratifieFlottant.jpg",
+      "question": "Quel est le revêtement de sol de votre rez-de-chaussée ?",
+      "default_answer": "Stratifié (parquet flottant)",
+      "multiple_answers": true,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Peinture ou résine",
+          "picture": "/img/materials/Revetement_Sol_PeintureResine.jpg",
+          "advices_sheets": [
+            12
+          ],
+          "threshold": 25,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 20
+            }
+          ],
+          "content": {
+            "material": "La peinture ou résine",
+            "material_impact": "La peinture et la résine sont résistants à l’eau, surtout si elles ont été bien posées. Leur surface imperméable limite les infiltrations. Mais attention : en cas d’inondation prolongée, elles peuvent finir par cloquer, jaunir ou même se décoller.<br/>La résistance dépend beaucoup de la qualité du produit utilisé… et de la façon dont il a été appliqué. Si vous avez un doute, n’hésitez pas à demander conseil à un professionnel."
+          },
+          "problem_description": "Le revêtement de sol du rez-de-chaussée est en peinture ou résine."
+        },
+        {
+          "id": 2,
+          "name": "Moquette",
+          "picture": "/img/materials/Revetement_Sol_Moquette.jpg",
+          "advices_sheets": [
+            12
+          ],
+          "threshold": 50,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 85
+            }
+          ],
+          "content": {
+            "material": "La moquette",
+            "material_impact": "Douce sous les pieds, oui. Résistante à l’eau, pas vraiment…La moquette n’aime pas l’humidité : en cas d’inondation, elle peut vite devenir un nid à moisissures et à mauvaises odeurs. Et même après séchage, elle garde souvent des traces de son passage dans l’eau.<br/>Si votre rez-de-chaussée est exposé à un risque d’inondation, mieux vaut opter pour un revêtement plus adapté comme du carrelage ou beton ciré."
+          },
+          "problem_description": "Le revêtement de sol du rez-de-chaussée est en moquette."
+        },
+        {
+          "id": 3,
+          "name": "Plastique (Vinyle - PVC)",
+          "picture": "/img/materials/Revetement_Sol_Plastique.jpg",
+          "advices_sheets": [
+            12
+          ],
+          "threshold": 10,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 40
+            }
+          ],
+          "content": {
+            "material": "Le plastique (vinyle - PVC)",
+            "material_impact": "Les revêtements en plastique comme le vinyle ou le PVC résistent bien à l’eau en surface… mais pas toujours dans la durée. En cas d’immersion prolongée, ils peuvent se décoller, se gondoler ou se déformer. Résultat : un sol vite abîmé, parfois irrécupérable.<br/>Si vous choisissez ce type de revêtement, privilégiez la pose collée plutôt que l'adhésif et un modèle adapté aux pièces humides."
+          },
+          "problem_description": "Le revêtement de sol du rez-de-chaussée est en plastique."
+        },
+        {
+          "id": 4,
+          "name": "Bois massif",
+          "picture": "/img/materials/Revetement_Sol_BoisMassif.jpg",
+          "advices_sheets": [
+            12
+          ],
+          "threshold": 15,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 50
+            }
+          ],
+          "content": {
+            "material": "Le bois massif",
+            "material_impact": "Le bois massif, c’est beau... mais ça n'aime pas l'eau ! Poreux par nature, il absorbe l’humidité au moindre contact. Résultat : en cas d’inondation prolongée, il gonfle, se déforme et peut devenir un terrain propice aux moisissures. Un sol en bois massif demande une attention particulière si votre logement est en zone à risque. Le bon réflexe ? Penser à une alternative plus résistante pour les pièces les plus exposées comme le carrelage ou le béton ciré."
+          },
+          "problem_description": "Le revêtement de sol du rez-de-chaussée est en bois massif."
+        },
+        {
+          "id": 5,
+          "name": "Stratifié (parquet flottant)",
+          "picture": "/img/materials/Revetement_Sol_StratifieFlottant.jpg",
+          "advices_sheets": [
+            12
+          ],
+          "threshold": 70,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le stratifié (parquet flottant)",
+            "material_impact": "Esthétique et facile à poser, le parquet flottant a tout pour plaire… sauf quand l’eau s’en mêle. Perméable, il laisse l’humidité s’infiltrer rapidement entre les lames. Résultat : il gonfle, se décolle et devient vite inutilisable. Même une faible hauteur d’eau peut suffire à l’endommager. Si vous vivez dans une zone à risque, mieux vaut opter pour un revêtement plus résistant à l’eau comme le carrelage ou le béton ciré."
+          },
+          "problem_description": "Le revêtement de sol du rez-de-chaussée est en stratifié."
+        },
+        {
+          "id": 6,
+          "name": "Carrelage",
+          "picture": "/img/materials/Revetement_Sol_Carrelage.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 30
+            }
+          ],
+          "content": {
+            "material": "Le carrelage",
+            "material_impact": "Le carrelage résiste bien aux inondations, même prolongées.<br/>Mais attention : les joints, souvent poreux, peuvent absorber l’humidité et se dégrader avec le temps. Et si la colle utilisée n’est pas de bonne qualité, certains carreaux peuvent finir par se décoller. Un conseil : veiller à la qualité des matériaux employés (colle et joint) et à leur bonne application."
+          },
+          "problem_description": "Le revêtement de sol du rez-de-chaussée est en carrelage."
+        },
+        {
+          "id": 7,
+          "name": "Béton ciré",
+          "picture": "/img/materials/Revetement_Sol_BetonCire.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 20
+            }
+          ],
+          "content": {
+            "material": "Le béton ciré",
+            "material_impact": "Avec sa surface lisse et sans joints, le béton ciré a tout pour limiter les dégâts : pas de recoins où l’eau peut stagner, et une bonne résistance à l’humidité. Mais comme souvent, tout dépend de la qualité du matériau… et surtout de son application. Un béton mal protégé ou mal entretenu peut finir par se fissurer ou perdre son imperméabilité."
+          },
+          "problem_description": "Le revêtement de sol du rez-de-chaussée est en béton ciré."
+        }
+      ]
+    },
+    {
+      "id": "2a",
+      "name": "Portes et portes-fenêtres extérieures",
+      "picture": "/img/materials/Menuiseries_acces_ext_PVC.jpg",
+      "question": "De quels matériaux sont constitués vos portes extérieures et portes-fenêtres ?",
+      "default_answer": "PVC",
+      "multiple_answers": true,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Bois",
+          "picture": "/img/materials/Menuiseries_acces_ext_Bois.jpg",
+          "advices_sheets": [
+            9,
+            1,
+            14
+          ],
+          "threshold": 40,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le bois",
+            "material_impact": "En cas d’inondation, une porte en bois absorbe l’humidité, ce qui peut entraîner un gonflement, un blocage à l’ouverture ou même un début de pourrissement si elle met du temps à sécher. Un traitement hydrofuge pour imperméabiliser votre porte contre l'humidité et la pluie, un bon entretien et des finitions soignées peuvent limiter les dégâts.<br/>Et pour les zones les plus exposées, il est conseillé de privilégier des matériaux en pvc ou aluminium."
+          },
+          "problem_description": "Les portes extérieures et portes fenêtres sont en bois."
+        },
+        {
+          "id": 2,
+          "name": "Aluminium",
+          "picture": "/img/materials/Menuiseries_acces_ext_Alu.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 5
+            }
+          ],
+          "content": {
+            "material": "L'aluminium",
+            "material_impact": "L'aluminium ne craint ni l’humidité ni les variations de température, et garde sa forme sans broncher. Après un épisode de submersion, un bon nettoyage suffit généralement à lui redonner tout son éclat.<br/>Pensez tout de même à jeter un œil aux joints d’étanchéité et aux fixations, et choisissez de préférence un aluminium traité contre l'oxydation."
+          },
+          "problem_description": "Les portes extérieures et portes fenêtres sont en aluminium."
+        },
+        {
+          "id": 3,
+          "name": "PVC",
+          "picture": "/img/materials/Menuiseries_acces_ext_PVC.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 5
+            }
+          ],
+          "content": {
+            "material": "Le PVC",
+            "material_impact": "Pratique et résistant, le PVC agit comme une véritable barrière contre l'eau. Il ne rouille pas, ne gonfle pas et garde son intégrité même après une inondation. Un petit coup d’éponge suffit généralement pour le remettre en état. Mais ce sont souvent les détails qui font la différence : surveillez les joints et les points de fixation, car ce sont eux qui assurent la bonne étanchéité de l’ensemble."
+          },
+          "problem_description": "Les portes extérieures et portes fenêtres sont en PVC."
+        }
+      ]
+    },
+    {
+      "id": "2b",
+      "name": "Fenêtres et soupiraux",
+      "picture": "/img/materials/Menuiseries_acces_ext_haut_PVC.jpg",
+      "question": "De quels matériaux sont constitués les fenêtres et les soupiraux de votre rez-de-chaussée ?",
+      "default_answer": "PVC",
+      "multiple_answers": true,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Bois",
+          "picture": "/img/materials/Menuiseries_acces_ext_haut_Bois.jpg",
+          "advices_sheets": [
+            1,
+            14
+          ],
+          "threshold": 40,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le bois",
+            "material_impact": "Sur les fenêtres et les soupiraux en rez-de-chaussée, une exposition prolongée à l’humidité peut faire gonfler le bois, et parfois bloquer l’ouverture ou la fermeture. Sans traitement adapté, les moisissures peuvent aussi s’inviter, surtout si le bois met du temps à sécher par temps froid. Un entretien régulier, une bonne lasure pour l'extérieur et un bon mastic d’étanchéité peuvent faire la différence. À vous de jouer !"
+          },
+          "problem_description": "Les fenêtres sont en bois."
+        },
+        {
+          "id": 2,
+          "name": "Aluminium",
+          "picture": "/img/materials/Menuiseries_acces_ext_haut_Alu.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 0
+            }
+          ],
+          "content": {
+            "material": "L'aluminium",
+            "material_impact": "L'aluminium fait partie des matériaux résistants, particulièrement pour les zones à risque, car il ne craint pas l’humidité. Même en cas d’inondation, vos fenêtres ou soupiraux en alu resteront en bon état, sans gonflement ni rouille. Gardez cependant un œil sur les joints et les systèmes d’ouverture, qui assurent l’étanchéité dans la durée."
+          },
+          "problem_description": "Les fenêtres sont en aluminium."
+        },
+        {
+          "id": 3,
+          "name": "PVC",
+          "picture": "/img/materials/Menuiseries_acces_ext_haut_PVC.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 0
+            }
+          ],
+          "content": {
+            "material": "Le PVC",
+            "material_impact": "Le PVC est un bon choix.<br/>Résistant à l’eau, il ne se déforme pas, ne se gorge pas d’humidité et se remet facilement d’un passage sous l’eau. Après une inondation, un nettoyage suffit le plus souvent à lui redonner son aspect d’origine.<br/>Mais attention aux joints et aux points d’assemblage : ce sont eux qui garantissent l’étanchéité de l’ensemble. Un petit contrôle régulier peut éviter de gros tracas."
+          },
+          "problem_description": "Les fenêtres sont en PVC."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Escaliers et portes intérieurs",
+      "picture": "/img/materials/Menuiseries_Int_Bois.jpg",
+      "question": "De quels matériaux sont constitués vos escaliers et portes intérieurs ?",
+      "default_answer": "Bois",
+      "multiple_answers": true,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Bois",
+          "picture": "/img/materials/Menuiseries_Int_Bois.jpg",
+          "advices_sheets": [
+            6
+          ],
+          "threshold": 80,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le bois",
+            "material_impact": "Naturel et chaleureux, le bois est souvent le choix numéro un pour les escaliers et les portes intérieures. Mais en cas d’inondation, il peut gonfler et se déformer, jusqu'à rendre les portes difficiles à ouvrir, voire irrécupérables ! Si votre rez-de-chaussée est exposé aux risques d’inondation, mieux vaut anticiper plutôt que réparer."
+          },
+          "problem_description": "Les escaliers et portes intérieurs sont en bois."
+        },
+        {
+          "id": 2,
+          "name": "Aluminium",
+          "picture": "/img/materials/Menuiseries_Int_Alu.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 10
+            }
+          ],
+          "content": {
+            "material": "L'aluminium",
+            "material_impact": "L’aluminium résiste parfaitement quand l’eau monte : il ne gonfle pas et ne rouille pas. Seule précaution : surveillez les points de fixation et les finitions, qui peuvent, eux, souffrir de l’humidité à la longue. Particulièrement fiable et nécessitant un minimum d’entretien, l’alu traverse les intempéries sans souci."
+          },
+          "problem_description": "Les escaliers et portes intérieurs sont en aluminium."
+        },
+        {
+          "id": 3,
+          "name": "PVC",
+          "picture": "/img/materials/Menuiseries_Int_PVC.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 10
+            }
+          ],
+          "content": {
+            "material": "Le PVC",
+            "material_impact": "Le PVC a l’avantage d’être léger, économique… et de ne pas avoir peur de l’eau. En cas d’inondation, il ne se déforme pas, ne pourrit pas et retrouve facilement son aspect d’origine après un bon nettoyage.<br/>Petite vigilance quand même sur les joints, les charnières et les fixations, qui peuvent mal vivre une humidité prolongée."
+          },
+          "problem_description": "Les escaliers et portes intérieurs sont en PVC."
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Cloisons",
+      "picture": "/img/materials/Cloison_PlaquePlatre.jpg",
+      "question": "Quelle est la composition de vos cloisons ?",
+      "default_answer": "Plaques de plâtre",
+      "multiple_answers": true,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Parpaings creux",
+          "picture": "/img/materials/Cloison_ParpaingCreux.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 0
+            }
+          ],
+          "content": {
+            "material": "Le parpaing creux",
+            "material_impact": "Les parpaings creux ne craignent pas l’eau : ils restent solides, même après une inondation. Mais attention : leur structure alvéolaire peut piéger l’humidité à l’intérieur. Et qui dit humidité persistante, dit risque de moisissures à long terme. Pour éviter ça, pensez à bien ventiler les pièces concernées et à favoriser un séchage rapide après tout épisode d’inondation."
+          },
+          "problem_description": "Les cloisons sont en parpaings creux."
+        },
+        {
+          "id": 2,
+          "name": "Brique plâtrière",
+          "picture": "/img/materials/Cloison_Briquette.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 0
+            }
+          ],
+          "content": {
+            "material": "La brique plâtrière",
+            "material_impact": "La brique plâtrière supporte plutôt bien l’humidité. Même après une inondation, elle garde sa solidité. Mais attention : si l’eau s’infiltre en profondeur, un assèchement complet s’impose pour éviter tout risque de moisissure. Et si vos murs sont recouverts d’un enduit en plâtre, il faudra vérifier son état : ce dernier peut se fragiliser, s’effriter ou cloquer."
+          },
+          "problem_description": "Les cloisons sont en briquettes."
+        },
+        {
+          "id": 3,
+          "name": "Plaques de plâtre",
+          "picture": "/img/materials/Cloison_PlaquePlatre.jpg",
+          "advices_sheets": [
+            3
+          ],
+          "threshold": 20,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 60
+            }
+          ],
+          "content": {
+            "material": "Le plaque de plâtre",
+            "material_impact": "La plaque de plâtre, plus communément appelée \"placo\", a bien des qualités, sauf pour sa résistance à l’eau. Poreuse, elle absorbe rapidement l’humidité. Et elle peut se déformer en cas d’immersion prolongée. Dans certains cas, un remplacement sera nécessaire après une inondation. Si votre rez-de-chaussée est exposé, pensez à des alternatives plus résistantes à l’humidité."
+          },
+          "problem_description": "Les cloisons sont en plaques de plâtre."
+        },
+        {
+          "id": 4,
+          "name": "Carreaux de plâtre",
+          "picture": "/img/materials/Cloison_CarreauxPlatre.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 15
+            }
+          ],
+          "content": {
+            "material": "Le carreaux de plâtre",
+            "material_impact": "À la différence du placo, plus léger mais plus fragile, les carreaux de plâtre sont bien plus robustes. Ils résistent bien mieux à l’eau, mais ne sont pas pour autant imperméables. En cas d’inondation, ils peuvent retenir l’humidité, surtout s’il s’agit de modèles à alvéoles creuses.<br/>Résultat : un séchage souvent long, et parfois inégal. Si vous optez pour ce matériau, pensez à une bonne ventilation des pièces : c’est la clé d’un mur sain dans la durée."
+          },
+          "problem_description": "Les cloisons sont en carreaux de plâtre."
+        },
+        {
+          "id": 5,
+          "name": "Panneaux alvéolaires",
+          "picture": "/img/materials/Cloison_PanneauxAlveolaire.jpg",
+          "advices_sheets": [
+            3
+          ],
+          "threshold": 30,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le panneau alvéolaire",
+            "material_impact": "Légers et faciles à poser, les panneaux alvéolaires sont souvent choisis pour les cloisons intérieures… mais ils sont peu résistants à l'eau. Très poreux, ils absorbent rapidement l’humidité.<br/>En cas d’inondation, ils se déforment, se fragilisent et deviennent un terrain favorable aux moisissures. Dans la majorité des cas, un remplacement complet sera nécessaire. Si votre logement est en zone inondable, mieux vaut éviter ce type de matériau au rez-de-chaussée et privilégier la brique platrière ou encore les carreaux de plâtre hydrofuge."
+          },
+          "problem_description": "Les cloisons sont en panneaux alvéolaires."
+        },
+        {
+          "id": 6,
+          "name": "Bois aggloméré",
+          "picture": "/img/materials/Cloison_BoisAgglo.jpg",
+          "advices_sheets": [
+            3
+          ],
+          "threshold": 40,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le bois aggloméré",
+            "material_impact": "Le bois aggloméré est pratique et économique,mais ne résiste pas bien à l’eau. Composé de fibres ou de copeaux de bois compressés, il agit comme une éponge : au moindre contact prolongé avec l’humidité, il gonfle, se déforme, perd toute sa solidité et se couvre de moisissures.<br/>En cas d’inondation, le remplacement est généralement inévitable."
+          },
+          "problem_description": "Les cloisons sont en bois aggloméré."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Isolant intérieur des cloisons",
+      "picture": "/img/materials/Isolant_Cloisons_LaineVerreRocheBoisTextile.jpg",
+      "question": "Quel isolant compose vos cloisons intérieures ?",
+      "default_answer": "Laine de verre/roche/bois; Fibre textile",
+      "multiple_answers": true,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Laine de verre/roche/bois; Fibre textile",
+          "picture": "/img/materials/Isolant_Cloisons_LaineVerreRocheBoisTextile.jpg",
+          "advices_sheets": [
+            5
+          ],
+          "threshold": 50,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "La laine de verre/roche/bois; fibre textile",
+            "material_impact": "Ces isolants sont efficaces contre le froid et le bruit… mais peu résistants à l’eau. En cas d’inondation, ils se remplissent d'eau, s'alourdissent et glissent au bas des cloisons. Remplacez impérativement les matériaux imbibés. Si votre logement est en zone inondable, pensez à vérifier leur état après un sinistre… ou à envisager des matériaux plus adaptés à l’humidité."
+          },
+          "problem_description": "L'isolant des cloisons est en laine de verre / roche / bois ou en fibre textile."
+        },
+        {
+          "id": 2,
+          "name": "Ouate de cellulose",
+          "picture": "/img/materials/Isolant_Cloisons_OuateCellulose.jpg",
+          "advices_sheets": [
+            5
+          ],
+          "threshold": 80,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "La ouate de cellulose",
+            "material_impact": "Écologique et performante, la ouate de cellulose (fabriquée à partir de papier recyclé) offre une bonne isolation thermique et phonique.<br/>Mais en cas d’inondation, elle montre vite ses limites : très poreuse, elle absorbe l’eau comme un buvard. Résultat : elle s’alourdit, s’affaisse en bas de cloison et perd toute son efficacité. Les risques de moisissures sont importants sans séchage complet. Son remplacement est parfois indispensable en cas de sinistre."
+          },
+          "problem_description": "L'isolant des cloisons est en ouate de cellulose."
+        },
+        {
+          "id": 3,
+          "name": "Plastique alvéolaire; polystyrène; polyuréthane",
+          "picture": "/img/materials/Isolant_Cloisons_PlastiqueAlveolairePolystyrenePolyruethane.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 15
+            }
+          ],
+          "content": {
+            "material": "Le plastique alvéolaire; polystyrène; polyuréthane",
+            "material_impact": "Ces isolants synthétiques ont l’avantage de peu absorber l’eau.<br/>Même en cas d’inondation, ils conservent en grande partie leur forme et leurs propriétés isolantes. L’humidité peut malgré tout s’infiltrer entre les plaques ou dans les cavités, surtout si l’installation est ancienne ou mal posée. Un assèchement complet devra alors être appliqué."
+          },
+          "problem_description": "L'isolant des cloisons est en plastique alvéolaire ou polystyrène ou polyuréthane."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Chauffage",
+      "picture": "/img/materials/Chauffage_ConvecteurElectrique.jpg",
+      "question": "Quel type de chauffage utilisez-vous ?",
+      "default_answer": "Radiateur électrique",
+      "multiple_answers": true,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Radiateur électrique",
+          "picture": "/img/materials/Chauffage_ConvecteurElectrique.jpg",
+          "advices_sheets": [
+            11
+          ],
+          "threshold": 10,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le radiateur électrique",
+            "material_impact": "Le corps de chauffe des radiateurs électriques résiste plutôt bien à l’eau. Mais une immersion prolongée peut les endommager sérieusement, voire les rendre inutilisables. Après une inondation, un contrôle électrique est indispensable avant toute remise en marche. Mieux vaut se chauffer en toute sécurité !"
+          },
+          "problem_description": "Le chauffage est assuré par des convecteurs électriques."
+        },
+        {
+          "id": 2,
+          "name": "Chaudière / Pompe à chaleur",
+          "picture": "/img/materials/Chauffage_ChaudierePompeChaleur.jpg",
+          "advices_sheets": [
+            13
+          ],
+          "threshold": 15,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 70
+            }
+          ],
+          "content": {
+            "material": "La chaudière / Pompe à chaleur",
+            "material_impact": "Performantes mais sensibles, les chaudières et pompes à chaleur n’aiment pas du tout l’eau. En cas d’inondation, leurs composants électroniques et leur système de fonctionnement (combustion ou compression) peuvent être gravement touchés. Résultat : une panne définitive dans bien des cas. Avant toute remise en service, un contrôle complet par un professionnel est indispensable."
+          },
+          "problem_description": "Le chauffage est assuré par une chaudière ou une pompe à chaleur."
+        },
+        {
+          "id": 3,
+          "name": "Poêle / Cheminée",
+          "picture": "/img/materials/Chauffage_PoeleCheminee.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 0
+            }
+          ],
+          "content": {
+            "material": "Le poêle / cheminée",
+            "material_impact": "Robustes en apparence, les poêles et cheminées ne sont pas à l’abri de subir de multiples dégâts en cas d’inondation : l’eau peut s’infiltrer dans les conduits, endommager les joints, les systèmes d’allumage ou provoquer de la corrosion sur certaines pièces. Avant de les rallumer, mieux vaut faire appel à un professionnel pour un contrôle complet."
+          },
+          "problem_description": "Le chauffage est assuré par un poêle ou une cheminée."
+        },
+        {
+          "id": 4,
+          "name": "Chauffage au sol",
+          "picture": "/img/materials/Chauffage_Sol.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 25
+            }
+          ],
+          "content": {
+            "material": "Le chauffage au sol",
+            "material_impact": "Installé sous le carrelage ou le parquet, le chauffage au sol est généralement conçu pour bien résister à l’humidité.<br/>Mais en cas d’inondation prolongée, certains composants comme les tuyaux ou les éléments chauffants peuvent être fragilisés, surtout si l’eau stagne longtemps. Avant toute remise en route, un contrôle par un professionnel s’impose."
+          },
+          "problem_description": "Le chauffage est assuré par un chauffage au sol."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Production d'eau chaude",
+      "picture": "/img/materials/Eau_Chaude_PompeChaleurChaudiere.jpg",
+      "question": "Quel est votre mode de production d'eau chaude ?",
+      "default_answer": "Chauffe-eau",
+      "multiple_answers": true,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Chauffe-eau",
+          "picture": "/img/materials/Eau_Chaude_ChauffeEau.jpg",
+          "advices_sheets": [
+            10
+          ],
+          "threshold": 20,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le chauffe-eau",
+            "material_impact": "Le chauffe-eau, qu'il soit électrique ou au gaz, est sensible à l'eau. Une inondation pourrait faciliter l'apparition de corrosion et endommager les composants électriques ou le brûleur à gaz, le rendant inutilisable. La première mesure à prendre est d'installer le chauffe-eau à un niveau sans risque d'inondation."
+          },
+          "problem_description": "L'eau chaude sanitaire est assurée au moyen d'un chauffe-eau"
+        },
+        {
+          "id": 2,
+          "name": "Pompe à chaleur / Chaudière",
+          "picture": "/img/materials/Eau_Chaude_PompeChaleurChaudiere.jpg",
+          "advices_sheets": [
+            10
+          ],
+          "threshold": 15,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 70
+            }
+          ],
+          "content": {
+            "material": "La pompe à chaleur / chaudière",
+            "material_impact": "Les chaudières et pompes à chaleur sont sensibles à l'eau. Une inondation peut endommager leurs composants électroniques, leur système de fonctionnement (combustion ou compression) et les rendre inutilisables. Résultat : une panne définitive dans bien des cas.<br/>Avant toute remise en service, un contrôle complet par un professionnel est indispensable. Et veillez au préalable à installer votre équipement en hauteur pour limiter le risque d'inondation."
+          },
+          "problem_description": "L'eau chaude sanitaire est assurée au moyen d'une pompe à chaleur ou d'une chaudière."
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Accès au sous-sol",
+      "picture": "/img/materials/Sous_Sol_AccesInt.jpg",
+      "question": "Avez-vous un garage ou une cave ?",
+      "default_answer": "Oui",
+      "multiple_answers": false,
+      "answers": [
+        {
+          "id": 1,
+          "name": "Oui",
+          "picture": "/img/materials/Sous_Sol_AccesInt.jpg",
+          "advices_sheets": [
+            8,
+            1,
+            7
+          ],
+          "threshold": 0,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 100
+            }
+          ],
+          "content": {
+            "material": "Le sous-sol",
+            "material_impact": "Le sous-sol est, dans la plupart des cas et pour une raison évidente, la zone la plus exposée en cas d’inondation. Par sa position, il est en effet le premier à être touché par une montée des eaux ou une infiltration.<br/>Si vous en avez un, mieux vaut y stocker le strict nécessaire et surélever ce qui peut l’être.<br/>Anticiper, c’est déjà protéger."
+          },
+          "problem_description": "Le sous-sol est accessible en extérieur."
+        },
+        {
+          "id": 2,
+          "name": "Non",
+          "picture": "/img/materials/Sous_Sol_AccesExt.jpg",
+          "advices_sheets": [],
+          "threshold": -1,
+          "abacus": [
+            {
+              "flood_level": 3,
+              "immersed_days": "medium",
+              "value": 0
+            }
+          ],
+          "content": {
+            "material": "",
+            "material_impact": ""
+          },
+          "problem_description": ""
+        }
+      ]
+    }
+  ]
+}
