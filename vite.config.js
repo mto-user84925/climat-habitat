@@ -5,6 +5,14 @@ import path from 'path';
 
 let inseeCache = null;
 
+function normalizeInsee(code) {
+  if (!code) return code;
+  if (/^132(0[1-9]|1[0-6])$/.test(code)) return '13055';
+  if (/^751(0[1-9]|1[0-9]|20)$/.test(code)) return '75056';
+  if (/^6938[1-9]$/.test(code)) return '69123';
+  return code;
+}
+
 export default defineConfig({
   plugins: [
     react(),
@@ -28,11 +36,12 @@ export default defineConfig({
                 inseeCache = JSON.parse(fs.readFileSync(idxPath, 'utf-8'));
               }
 
-              const entry = inseeCache[insee];
+              const safeInsee = normalizeInsee(insee);
+              const entry = inseeCache[safeInsee];
               if (!entry) {
                 res.statusCode = 404;
                 res.setHeader('Content-Type', 'application/json');
-                res.end(JSON.stringify({ error: `Commune ${insee} non trouvée` }));
+                res.end(JSON.stringify({ error: `Commune ${safeInsee} (recherche: ${insee}) non trouvée` }));
                 return;
               }
 

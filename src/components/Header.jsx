@@ -36,7 +36,7 @@ export default function Header({ onReset, currentStep }) {
         <div className="flex items-center gap-3">
           <div className="hidden md:flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full">
             <ShieldCheck className="w-4 h-4" />
-            <span>Données souveraines Météo-France & Géorisques</span>
+            <span>Expertise Météo-Climat Pro & Géorisques</span>
           </div>
 
           {currentStep > 0 && (

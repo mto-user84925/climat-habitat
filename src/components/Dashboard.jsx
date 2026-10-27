@@ -26,6 +26,8 @@ import {
 import SeasonalTempChart from './charts/SeasonalTempChart';
 import HeatwaveComparisonCard from './charts/HeatwaveComparisonCard';
 import PluvioMoistureCard from './charts/PluvioMoistureCard';
+import SeasonalRainChart from './charts/SeasonalRainChart';
+import EnergyComfortCard from './charts/EnergyComfortCard';
 
 // Catalogue des 19 fiches travaux BTP
 const WORKSHEETS_CATALOG = {
@@ -229,7 +231,7 @@ export default function Dashboard({ addressData, georisques, climadiag, quizResu
           }`}
         >
           <Sparkles className="w-4 h-4 text-emerald-500" />
-          <span>1. Projections Météo-France 2050 (Graphiques)</span>
+          <span>1. Projections Climatiques 2050 (Météo-Climat Pro)</span>
           <span className="text-[10px] font-extrabold uppercase bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">Exclusif</span>
         </button>
 
@@ -263,7 +265,7 @@ export default function Dashboard({ addressData, georisques, climadiag, quizResu
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1">
                 <Sparkles className="w-4 h-4" />
-                <span>Simulations Météo-France Climadiag Commune (TRACC / GIEC)</span>
+                <span>Modélisations Météo-Climat Pro (Trajectoire TRACC / GIEC)</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                 Projections climatiques pour {addressData.city}
@@ -315,13 +317,28 @@ export default function Dashboard({ addressData, georisques, climadiag, quizResu
                 horizonLabel={horizonData.horizonLabel}
               />
 
-              {/* 3. GRAPHIQUE : PLUVIOMETRIE & SOLS ARGILES */}
+              {/* 3. NOUVEAU GRAPHIQUE : PLUVIOMETRIE PAR SAISON (MM) & PLUIES INTENSES */}
+              <SeasonalRainChart
+                g3Data={horizonData.g3Seasons}
+                extremeRain={horizonData.extremeRain}
+                horizonLabel={horizonData.horizonLabel}
+              />
+
+              {/* 4. NOUVEAU GRAPHIQUE : INCONFORT THERMIQUE & SECHERESSE SANS PLUIE */}
+              <EnergyComfortCard
+                thermalDiscomfort={horizonData.thermalDiscomfort}
+                dryStreak={horizonData.dryStreak}
+                heatwaveStreak={horizonData.heatwaveStreak}
+                horizonLabel={horizonData.horizonLabel}
+              />
+
+              {/* 5. GRAPHIQUE : BILAN PLUVIOMETRIQUE ANNUEL & TENSION DU SOL */}
               <PluvioMoistureCard
                 precipData={horizonData.precipitations}
                 horizonLabel={horizonData.horizonLabel}
               />
 
-              {/* 4. CARTE RECUL DU GEL */}
+              {/* 6. CARTE RECUL DU GEL */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 text-slate-900 shadow-2xl border border-slate-100 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
@@ -365,8 +382,9 @@ export default function Dashboard({ addressData, georisques, climadiag, quizResu
 
             </div>
           ) : (
-            <div className="bg-white rounded-3xl p-10 text-center text-slate-600 shadow-2xl">
-              Chargement des simulations climatiques Météo-France...
+            <div className="bg-white rounded-3xl p-10 text-center text-slate-600 shadow-2xl flex flex-col items-center justify-center gap-3">
+              <div className="w-8 h-8 rounded-full border-2 border-indigo-600 border-t-transparent animate-spin" />
+              <p className="font-semibold text-slate-700">Chargement des projections Météo-Climat Pro...</p>
             </div>
           )}
 

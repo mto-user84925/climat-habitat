@@ -4,6 +4,14 @@ import path from 'path';
 
 let inseeIndexCache = null;
 
+function normalizeInsee(code) {
+  if (!code) return code;
+  if (/^132(0[1-9]|1[0-6])$/.test(code)) return '13055';
+  if (/^751(0[1-9]|1[0-9]|20)$/.test(code)) return '75056';
+  if (/^6938[1-9]$/.test(code)) return '69123';
+  return code;
+}
+
 export default async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,6 +27,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Code INSEE requis" });
   }
 
+  const safeInsee = normalizeInsee(insee);
+
   try {
     // Load index if not cached
     if (!inseeIndexCache) {
@@ -30,9 +40,9 @@ export default async function handler(req, res) {
       inseeIndexCache = JSON.parse(raw);
     }
 
-    const entry = inseeIndexCache[insee];
+    const entry = inseeIndexCache[safeInsee];
     if (!entry) {
-      return res.status(404).json({ error: `Commune INSEE ${insee} introuvable dans l'index` });
+      return res.status(404).json({ error: `Commune INSEE ${safeInsee} (demandé: ${insee}) introuvable dans l'index` });
     }
 
     const [offset, length] = entry;

@@ -106,9 +106,21 @@ export async function fetchGeorisquesData(lon, lat, insee) {
   return results;
 }
 
+export function normalizeInsee(code) {
+  if (!code) return code;
+  // Marseille arrondissements 13201..13216 -> 13055
+  if (/^132(0[1-9]|1[0-6])$/.test(code)) return '13055';
+  // Paris arrondissements 75101..75120 -> 75056
+  if (/^751(0[1-9]|1[0-9]|20)$/.test(code)) return '75056';
+  // Lyon arrondissements 69381..69389 -> 69123
+  if (/^6938[1-9]$/.test(code)) return '69123';
+  return code;
+}
+
 export async function fetchClimadiagData(insee) {
   try {
-    const res = await fetch(`/api/climat?insee=${insee}`);
+    const safeInsee = normalizeInsee(insee);
+    const res = await fetch(`/api/climat?insee=${safeInsee}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     return formatClimadiagIndicators(data);
@@ -156,15 +168,26 @@ export function formatClimadiagIndicators(raw) {
       const s2 = parseHorizon('S2', horizonIndex); // Nuits > 20°C
       const g3 = parseHorizon('G3', horizonIndex); // Précipitations
       const g4 = parseHorizon('G4', horizonIndex); // Jours pluie
+      const r1 = parseHorizon('R1', horizonIndex); // Pluies intenses > 20mm
+      const r2 = parseHorizon('R2', horizonIndex); // Jours consécutifs sans pluie (sécheresse)
+      const s3 = parseHorizon('S3', horizonIndex); // Durée max vague de chaleur
+      const t1 = parseHorizon('T1', horizonIndex); // Inconfort thermique estival / rafraîchissement
+      const ag3 = parseHorizon('AG3', horizonIndex); // DJU Chauffage / Températures cumulées
+      const ag4 = parseHorizon('AG4', horizonIndex); // Sévérité sécheresse végétale / feux
 
       // Température moyenne été & hiver
       const eteItem = g1 ? g1.find(i => i.label === 'été') : null;
       const hiverItem = g1 ? g1.find(i => i.label === 'hiver') : null;
 
+      const refRainTotal = g3 ? Math.round(g3.reduce((acc, curr) => acc + (curr.ref || 0), 0)) : 0;
+      const futureRainTotal = g3 ? Math.round(g3.reduce((acc, curr) => acc + (curr.mean || 0), 0)) : 0;
+
       return {
         horizonIndex,
         horizonLabel: horizonIndex === 0 ? '2030 (+2°C)' : horizonIndex === 1 ? '2050 (+2,7°C)' : '2100 (+4°C)',
         g1Seasons: g1 || [],
+        g3Seasons: g3 || [],
+        g4RainDays: g4 || [],
         tempEte: eteItem ? {
           ref: eteItem.ref,
           future: Math.round(eteItem.mean * 10) / 10,
@@ -190,9 +213,37 @@ export function formatClimadiagIndicators(raw) {
           future: Math.round(s2[0].mean * 10) / 10,
           diff: Math.round((s2[0].mean - s2[0].ref) * 10) / 10
         } : null,
-        precipitations: g3 ? {
-          refTotal: Math.round(g3.reduce((acc, curr) => acc + (curr.ref || 0), 0)),
-          futureTotal: Math.round(g3.reduce((acc, curr) => acc + (curr.mean || 0), 0))
+        precipitations: {
+          refTotal: refRainTotal,
+          futureTotal: futureRainTotal,
+          diffPercent: refRainTotal > 0 ? Math.round(((futureRainTotal - refRainTotal) / refRainTotal) * 100) : 0
+        },
+        extremeRain: r1 ? {
+          refTotal: Math.round(r1.reduce((acc, c) => acc + (c.ref || 0), 0) * 10) / 10,
+          futureTotal: Math.round(r1.reduce((acc, c) => acc + (c.mean || 0), 0) * 10) / 10
+        } : null,
+        dryStreak: r2 && r2[0] ? {
+          ref: Math.round(r2[0].ref),
+          future: Math.round(r2[0].mean),
+          diff: Math.round(r2[0].mean - r2[0].ref)
+        } : null,
+        heatwaveStreak: s3 && s3[0] ? {
+          ref: Math.round(s3[0].ref * 10) / 10,
+          future: Math.round(s3[0].mean * 10) / 10,
+          diff: Math.round((s3[0].mean - s3[0].ref) * 10) / 10
+        } : null,
+        thermalDiscomfort: t1 && t1[0] ? {
+          ref: Math.round(t1[0].ref),
+          future: Math.round(t1[0].mean),
+          diff: Math.round(t1[0].mean - t1[0].ref)
+        } : null,
+        heatingDemand: ag3 && ag3[0] ? {
+          ref: Math.round(ag3[0].ref),
+          future: Math.round(ag3[0].mean)
+        } : null,
+        wildfireIndex: ag4 && ag4[0] ? {
+          ref: Math.round(ag4[0].ref * 10) / 10,
+          future: Math.round(ag4[0].mean * 10) / 10
         } : null
       };
     }

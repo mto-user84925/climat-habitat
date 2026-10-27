@@ -55,13 +55,13 @@ const SIMPLE_QUIZ_QUESTIONS = [
     id: 4,
     theme: "Climat 2050",
     icon: "🌡️",
-    question: "Selon Météo-France, d'ici 2050, à quoi devons-nous nous préparer pour nos logements ?",
+    question: "D'ici 2050, à quelle évolution thermique devons-nous nous préparer pour nos logements ?",
     options: [
       { text: "À deux fois plus de jours de canicule et de nuits très chaudes", isCorrect: true },
       { text: "À exactement le même climat qu'aujourd'hui", isCorrect: false },
       { text: "À des hivers avec de la neige en plein été", isCorrect: false }
     ],
-    explanation: "Météo-France prévoit un doublement des journées à plus de 35°C et des nuits tropicales. Adapter sa maison dès maintenant est essentiel pour son confort et sa valeur."
+    explanation: "Les projections de référence prévoient un doublement des journées à plus de 35°C et des nuits tropicales. Adapter sa maison dès maintenant est essentiel pour son confort et sa valeur."
   },
   {
     id: 5,
